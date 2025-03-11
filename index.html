@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Cronograma Boda</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1b383893-0581-8041-af21-ceafaa55f6fc" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/></div><h1 class="page-title">Cronograma Boda</h1><p class="page-description">Mantén tus tareas organizadas, a tu manera.</p></header><div class="page-body"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Nombre de tarea</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesStatus"><path d="M8.75488 1.02344C8.75488 0.613281 8.41309 0.264648 8.00293 0.264648C7.59277 0.264648 7.25098 0.613281 7.25098 1.02344V3.11523C7.25098 3.51855 7.59277 3.86719 8.00293 3.86719C8.41309 3.86719 8.75488 3.51855 8.75488 3.11523V1.02344ZM3.91504 5.0293C4.20215 5.31641 4.69434 5.32324 4.97461 5.03613C5.26855 4.74902 5.26855 4.25684 4.98145 3.96973L3.53906 2.52051C3.25195 2.2334 2.7666 2.21973 2.47949 2.50684C2.19238 2.79395 2.18555 3.28613 2.47266 3.57324L3.91504 5.0293ZM10.9629 4.01758C10.6826 4.30469 10.6826 4.79688 10.9697 5.08398C11.2568 5.37109 11.749 5.36426 12.0361 5.07715L13.4854 3.62793C13.7725 3.34082 13.7725 2.84863 13.4785 2.55469C13.1982 2.27441 12.7061 2.27441 12.4189 2.56152L10.9629 4.01758ZM15.0234 8.78906C15.4336 8.78906 15.7822 8.44727 15.7822 8.03711C15.7822 7.62695 15.4336 7.28516 15.0234 7.28516H12.9385C12.5283 7.28516 12.1797 7.62695 12.1797 8.03711C12.1797 8.44727 12.5283 8.78906 12.9385 8.78906H15.0234ZM0.975586 7.28516C0.56543 7.28516 0.223633 7.62695 0.223633 8.03711C0.223633 8.44727 0.56543 8.78906 0.975586 8.78906H3.07422C3.48438 8.78906 3.83301 8.44727 3.83301 8.03711C3.83301 7.62695 3.48438 7.28516 3.07422 7.28516H0.975586ZM12.0361 10.9902C11.749 10.71 11.2568 10.71 10.9629 10.9971C10.6826 11.2842 10.6826 11.7764 10.9697 12.0635L12.4258 13.5127C12.7129 13.7998 13.2051 13.793 13.4922 13.5059C13.7793 13.2256 13.7725 12.7266 13.4854 12.4395L12.0361 10.9902ZM2.52051 12.4395C2.22656 12.7266 2.22656 13.2188 2.50684 13.5059C2.79395 13.793 3.28613 13.7998 3.57324 13.5127L5.02246 12.0703C5.31641 11.7832 5.31641 11.291 5.03613 11.0039C4.74902 10.7168 4.25684 10.71 3.96973 10.9971L2.52051 12.4395ZM8.75488 12.9658C8.75488 12.5557 8.41309 12.207 8.00293 12.207C7.59277 12.207 7.25098 12.5557 7.25098 12.9658V15.0576C7.25098 15.4609 7.59277 15.8096 8.00293 15.8096C8.41309 15.8096 8.75488 15.4609 8.75488 15.0576V12.9658Z"></path></svg></span>Estado</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Responsable</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>Fecha límite</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/kind_gray.svg" style="width:14px;height:14px;display:block"/></span>Tipo de tarea</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/magic-wand_gray.svg" style="width:14px;height:14px;display:block"/></span>Resumen</th></tr></thead><tbody><tr id="1b383893-0581-808f-9eb9-e7037f0609ab"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Fotografi%CC%81as%20(Previa)%201b3838930581808f9eb9e7037f0609ab.html"><span class="icon">📷</span>Fotografías (Previa)</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 10:30 AM → 12:30 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-red">Sesión Fotográfica</span></td><td class="cell-eG&lt;W">Sesión fotográfica de novios programada para el 3 de mayo de 2025, con la novia de 10:30 a 11:30 a.m. y el novio de 11:30 a 12:30 p.m. Prioridad alta.</td></tr><tr id="1b383893-0581-80e7-8b02-d82b4129f0ee"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Ida%20a%20Iglesia%201b383893058180e78b02d82b4129f0ee.html"><span class="icon">⛪</span>Ida a Iglesia</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 12:30 PM → 1:00 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-yellow">Salida a Iglesia</span></td><td class="cell-eG&lt;W">Salida de los Novios hacia la iglesia: el Novio sale a las 12:30 p.m. y la Novia a las 12:40 p.m., ambos desde el Hotel ISSEMYM hacia la Iglesia de Tonatico.</td></tr><tr id="1b383893-0581-8040-a7e7-cdc135826af1"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Misa%201b38389305818040a7e7cdc135826af1.html"><span class="icon">💒</span>Misa</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 1:00 PM → 2:00 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-blue">Ceremonia Religiosa</span><span class="selected-value select-value-color-purple">Llegada de Novios</span></td><td class="cell-eG&lt;W">Solicitud de función para incluir actualizaciones de productos en la próxima nota de la versión, con prioridad baja y nivel de esfuerzo bajo. La tarea no se inició y su fecha límite el 28 de febrero de 2025.</td></tr><tr id="1b383893-0581-8066-8c2c-dfd0a51ebec7"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Fotografi%CC%81as%20(Misa)%201b383893058180668c2cdfd0a51ebec7.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Fotografías (Misa)</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 2:00 PM → 2:30 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-red">Sesión Fotográfica</span></td><td class="cell-eG&lt;W">Sesión fotográfica programada para el 3 de mayo de 2025, de 14:00 a 14:30, con mariachi durante 30 minutos. Se tomarán fotos de los novios, familiares y padrinos.</td></tr><tr id="1b383893-0581-808e-8ca0-e15d7064be52"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Fotografi%CC%81as%20(Ixtamil)%201b3838930581808e8ca0e15d7064be52.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Fotografías (Ixtamil)</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 2:30 PM → 3:30 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-default">Salida a Salón</span><span class="selected-value select-value-color-red">Sesión Fotográfica</span></td><td class="cell-eG&lt;W">Tarea pendiente sobre fotografías en Ixtamil con fecha límite el 3 de mayo de 2025. Se requiere un resumen general y se listan subtareas sin completar. Archivos de respaldo están disponibles.</td></tr><tr id="1b383893-0581-803e-afc8-ea4620aa57b8"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Recepcio%CC%81n%20de%20invitados%20(Salo%CC%81n)%201b3838930581803eafc8ea4620aa57b8.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Recepción de invitados (Salón)</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 3:00 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-brown">Recepción</span></td><td class="cell-eG&lt;W">Los invitados llegan y se distribuyen a sus mesas asignadas por el hostess. La tarea debe completarse antes del 3 de mayo de 2025 a las 3:00 PM (CST).</td></tr><tr id="1b383893-0581-8047-a4f8-c07fb0c778b2"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Ceremonia%20Civil%201b38389305818047a4f8c07fb0c778b2.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Ceremonia Civil</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 3:30 PM → 4:00 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-gray">Ceremonia Civil</span><span class="selected-value select-value-color-purple">Llegada de Novios</span></td><td class="cell-eG&lt;W">Ceremonia civil programada para el 3 de mayo de 2025, de 15:30 a 16:00, a cargo del juez cívico y los novios.</td></tr><tr id="1b383893-0581-808e-9474-e089d131c911"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Comida%201b3838930581808e9474e089d131c911.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Comida</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 4:00 PM → 6:00 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-yellow">Comida</span><span class="selected-value select-value-color-default">Mariachis</span></td><td class="cell-eG&lt;W">Tarea de comida programada para comenzar el 3 de mayo de 2025 a las 4:00 PM (CST), con subtareas y archivos de respaldo pendientes.</td></tr><tr id="1b383893-0581-80cc-aa48-ec58a1f89223"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Brindis%201b383893058180ccaa48ec58a1f89223.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Brindis</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 5:30 PM → 6:00 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-default">Brindis</span></td><td class="cell-eG&lt;W"></td></tr><tr id="1b383893-0581-80e4-9c6a-fdb0586f1a15"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Intermedio%201b383893058180e49c6afdb0586f1a15.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Intermedio</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 6:00 PM → 7:00 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-orange">Barra</span><span class="selected-value select-value-color-yellow">Cabina Fotos</span><span class="selected-value select-value-color-red">Grupo</span></td><td class="cell-eG&lt;W"></td></tr><tr id="1b383893-0581-8086-a5f6-d62a4680bc0b"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Continuidad%20Evento%20(Bailes%20de%20novios)%201b38389305818086a5f6d62a4680bc0b.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Continuidad Evento (Bailes de novios)</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 7:00 PM → 8:00 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-yellow">Ramo</span><span class="selected-value select-value-color-red">Vals</span><span class="selected-value select-value-color-orange">Víbora</span></td><td class="cell-eG&lt;W"></td></tr><tr id="1b383893-0581-8056-8e1c-d1197baf4fe9"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Partida%20de%20Pastel%20&amp;%20Intermedio%201b383893058180568e1cd1197baf4fe9.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Partida de Pastel &amp; Intermedio</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 8:00 PM → 8:30 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-red">Grupo</span><span class="selected-value select-value-color-green">Pastel</span></td><td class="cell-eG&lt;W"></td></tr><tr id="1b383893-0581-8024-99da-dadf26e583d8"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Esquites%201b3838930581802499dadadf26e583d8.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Esquites</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 8:30 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-pink">Esquites</span></td><td class="cell-eG&lt;W"></td></tr><tr id="1b383893-0581-8029-9bd9-d111a495bf1c"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Fiesta%201b383893058180299bd9d111a495bf1c.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Fiesta</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 8:30 PM → 9:30 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-pink">Fiesta</span></td><td class="cell-eG&lt;W"></td></tr><tr id="1b383893-0581-806a-aef8-cac7f2fb9c91"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/Banda%20Chinelos%201b3838930581806aaef8cac7f2fb9c91.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>Banda/Chinelos</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 9:30 PM → 10:30 PM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-pink">Banda</span><span class="selected-value select-value-color-default">Chinelos</span></td><td class="cell-eG&lt;W"></td></tr><tr id="1b383893-0581-80a0-858d-f4fd4b9c950a"><td class="cell-title"><a href="Cronograma%20Boda%201b38389305818041af21ceafaa55f6fc/DJ%201b383893058180a0858df4fd4b9c950a.html"><img class="icon" src="https://www.notion.so/icons/checkmark_green.svg"/>DJ</a></td><td class="cell-gnLK"><span class="status-value"><div class="status-dot"></div>Sin empezar</span></td><td class="cell-LQAi"></td><td class="cell-Kn&gt;N"><time>@03/05/2025 10:30 PM → 04/05/2025 12:00 AM</time></td><td class="cell-_FbE"><span class="selected-value select-value-color-red">DJ</span></td><td class="cell-eG&lt;W"></td></tr></tbody></table><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
